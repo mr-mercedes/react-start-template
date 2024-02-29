@@ -24,9 +24,6 @@ module.exports = (_, args) => {
     resolve: {
       modules: [src, 'node_modules'],
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
-      alias: {
-        src,
-      },
     },
     output: {
       path: dist,
