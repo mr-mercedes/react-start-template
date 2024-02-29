@@ -1,8 +1,9 @@
 // Этот блок кода удалить и раскомментировать код ниже
 
 // import { transformCustomers } from './1_base';
-//
+//eslint-disable-next-line jest/no-commented-out-tests
 // describe('all', () => {
+// eslint-disable-next-line jest/no-commented-out-tests
 //   it('transformCustomers', () => {
 //     const customers = [
 //       { id: 1, name: 'John', age: 25, isSubscribed: true },

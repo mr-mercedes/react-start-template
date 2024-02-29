@@ -1,8 +1,9 @@
 // Этот блок кода удалить и раскомментировать код ниже
 
 // import { createRandomOperation, createRandomProduct } from './3_write';
-//
+//eslint-disable-next-line jest/no-commented-out-tests
 // describe('all', () => {
+//eslint-disable-next-line jest/no-commented-out-tests
 //   it('operation', () => {
 //     const createdAt = '2023-06-06T12:06:56.957Z';
 //     const operation = createRandomOperation(createdAt);
@@ -15,7 +16,7 @@
 //     expect(operation).toHaveProperty('category');
 //     expect(operation).toHaveProperty('type');
 //   });
-//
+//eslint-disable-next-line jest/no-commented-out-tests
 //   it('product', () => {
 //     const createdAt = '2023-06-06T12:06:56.957Z';
 //     const product = createRandomProduct(createdAt);
