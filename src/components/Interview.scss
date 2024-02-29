@@ -1,0 +1,17 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.personal_data {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  padding-left: 15px;
+
+  width: 850px;
+
+  font-size: large;
+}
+
