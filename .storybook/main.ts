@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import path from 'path';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -59,7 +58,7 @@ const config = {
           test: /\.(sc|sa|c)ss$/i,
           use: [
             {
-              loader: isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+              loader: 'style-loader',
             },
             {
               loader: 'css-loader',
