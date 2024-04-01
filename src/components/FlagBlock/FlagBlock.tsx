@@ -9,7 +9,7 @@ export const FlagBlock = ({ country }: FlagBlockProps) => {
   };
   useEffect(() => {
     getFlag(country);
-  }, []);
+  }, [country]);
 
   return (
     <div className={styles.flag}>
