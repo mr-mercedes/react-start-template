@@ -6,11 +6,15 @@
         "es2021": true
     },
     "extends": [
-        "plugin:react/jsx-runtime", // позволяет не импортировать реакт
-        "plugin:react-hooks/recommended", //поддержка хуков
-        "plugin:import/recommended", // подсказки при импорте
+        "plugin:react/jsx-runtime",
+        // позволяет не импортировать реакт
+        "plugin:react-hooks/recommended",
+        //поддержка хуков
+        "plugin:import/recommended",
+        // подсказки при импорте
         // "airbnb",
-        "prettier", // отключает конфликты с prettier
+        "prettier",
+        // отключает конфликты с prettier
         "plugin:prettier/recommended",
         "plugin:jest/recommended",
         "eslint:recommended",
@@ -24,19 +28,93 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "react-hooks",
+        "@typescript-eslint",
+        "unused-imports"
     ],
     "rules": {
-        "@typescript-eslint/no-var-requires": 0,
+        "@typescript-eslint/no-var-requires": "off",
         "@typescript-eslint/triple-slash-reference": "error",
-        "react/jsx-uses-vars": "error",
-        "react/jsx-uses-react": "error",
-        "@typescript-eslint/no-empty-interface": [
+        "react/no-unstable-nested-components": "warn",
+        "react/jsx-max-props-per-line": [
             "error",
             {
-                "allowSingleExtends": true
+                "maximum": 3,
+                "when": "multiline"
             }
-        ]
+        ],
+        "react/jsx-uses-vars": "error",
+        "react/jsx-uses-react": "error",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
+        "sort-imports": [
+            "error",
+            {
+                "ignoreCase": true,
+                "ignoreDeclarationSort": true
+            }
+        ],
+        "import/order": [
+            "error",
+            {
+                "groups": ["builtin", "external", "internal", "parent", "sibling"],
+                "pathGroups": [
+                    {
+                        "pattern": "react",
+                        "group": "external",
+                        "position": "before"
+                    },
+                    {
+                        "pattern": "src/**/*.*",
+                        "group": "internal",
+                        "position": "after"
+                    },
+                    {
+                        "pattern": "src/shared/**/*.*",
+                        "group": "internal",
+                        "position": "after"
+                    },
+                    {
+                        "pattern": "src/entities/**/*.*",
+                        "group": "internal",
+                        "position": "after"
+                    },
+                    {
+                        "pattern": "src/features/**/*.*",
+                        "group": "internal",
+                        "position": "after"
+                    },
+                    {
+                        "pattern": "src/widgets/**/*.*",
+                        "group": "internal",
+                        "position": "after"
+                    },
+                    {
+                        "pattern": "src/app/**/*.*",
+                        "group": "internal",
+                        "position": "after"
+                    },
+                    {
+                        "pattern": "./**/*.*",
+                        "group": "sibling",
+                        "position": "after"
+                    },
+                    {
+                        "pattern": "./**.module.*",
+                        "group": "sibling",
+                        "position": "after"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": ["react"],
+                "newlines-between": "never",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                }
+            }
+        ],
+        "import/no-cycle": "warn",
+        "import/no-unresolved": ["error", { "ignore": ["\\.svg\\?url$"] }]
     },
     "settings": {
         "react": {
@@ -44,6 +122,9 @@
         },
         "import/resolver": {
             "node": {
+                "paths": [
+                    "."
+                ],
                 "extensions": [
                     ".js",
                     ".jsx",

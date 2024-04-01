@@ -1,0 +1,25 @@
+export type TCountries =
+  | 'am'
+  | 'az'
+  | 'be'
+  | 'ca'
+  | 'cn'
+  | 'cz'
+  | 'gb'
+  | 'gn'
+  | 'gp'
+  | 'hn'
+  | 'id'
+  | 'il'
+  | 'jp'
+  | 'lu'
+  | 'nl'
+  | 'ro'
+  | 'td'
+  | 'ua'
+  | 'us'
+  | 've'
+  | 'vn'
+  | 'wf';
+
+export type TFlags = Record<TCountries, string>
