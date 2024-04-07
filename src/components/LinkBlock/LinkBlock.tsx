@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from 'src/context/ThemeContext';
 import ChatIcon from '../../../public/header/chat.svg';
 import NotActiveLikeIcon from '../../../public/header/heart.svg';
 import NotificationIcon from '../../../public/header/notification.svg';
@@ -6,6 +7,14 @@ import SettingsIcon from '../../../public/header/settings.svg';
 import styles from './LinkBlock.module.scss';
 
 export const LinkBlock = () => {
+  const { theme, setTheme } = useTheme();
+  const changeTheme = () => {
+    if (theme === 'white') {
+      setTheme('black');
+    } else {
+      setTheme('white');
+    }
+  };
   return (
     <div className={styles.links}>
       <a href="#">
@@ -17,7 +26,7 @@ export const LinkBlock = () => {
       <a href="#">
         <ChatIcon />
       </a>
-      <a href="#">
+      <a href="#" onClick={changeTheme}>
         <SettingsIcon />
       </a>
     </div>

@@ -1,5 +1,5 @@
-import {TCountries} from "../../types/types";
+import { TCountries } from '../../types/types';
 
 export interface FlagBlockProps {
-    country: TCountries;
+  country: TCountries;
 }

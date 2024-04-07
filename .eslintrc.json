@@ -60,11 +60,6 @@
                 "groups": ["builtin", "external", "internal", "parent", "sibling"],
                 "pathGroups": [
                     {
-                        "pattern": "react",
-                        "group": "external",
-                        "position": "before"
-                    },
-                    {
                         "pattern": "src/**/*.*",
                         "group": "internal",
                         "position": "after"

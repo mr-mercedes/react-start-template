@@ -1,3 +1,4 @@
+import cn from 'clsx';
 import React from 'react';
 import { InformBlock, SearchBlock } from 'src/components';
 import { Avatar } from '../Avatar/Avatar';
@@ -6,7 +7,7 @@ import styles from './Header.module.scss';
 
 export const Header = () => {
   return (
-    <header className={styles.header}>
+    <header className={cn(styles.header)}>
       <Logo />
       <div className={styles.wrapper}>
         <SearchBlock />
