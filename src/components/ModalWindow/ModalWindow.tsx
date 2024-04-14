@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { DetailedHTMLProps, HTMLAttributes, ReactNode, useState } from 'react';
 import cn from 'clsx';
 import CloseIcon from '../../../public/close.svg';
 import styles from './ModalWindow.module.scss';
-import { ModalWindowProps } from './ModalWindow.props';
 
 export const ModalWindow = ({ visible, children, ...props }: ModalWindowProps) => {
   const [show, setShow] = useState<boolean>(visible);
@@ -23,3 +22,8 @@ export const ModalWindow = ({ visible, children, ...props }: ModalWindowProps) =
     </div>
   );
 };
+
+export interface ModalWindowProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  visible: boolean;
+  children: ReactNode;
+}

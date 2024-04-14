@@ -1,8 +1,7 @@
-import React, { ForwardedRef, forwardRef } from 'react';
-import { InputProps } from './Input.props';
+import React, { DetailedHTMLProps, ForwardedRef, forwardRef, HTMLAttributes } from 'react';
+import cn from 'clsx';
 import SearchIcon from '../../../public/header/search.svg';
 import styles from './Input.module.scss';
-import cn from 'clsx';
 
 export const Input = forwardRef(
   ({ isSearch, className, ...props }: InputProps, ref: ForwardedRef<HTMLInputElement>) => {
@@ -16,3 +15,7 @@ export const Input = forwardRef(
 );
 
 Input.displayName = 'Input';
+
+export interface InputProps extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+  isSearch: boolean;
+}
