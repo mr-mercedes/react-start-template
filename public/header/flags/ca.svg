@@ -1,0 +1,12 @@
+<svg width="38.000000" height="16.000000" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		<clipPath id="clip59_31254">
+			<rect id="Icons Flag 20px ca" width="26.666666" height="20.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="Icons Flag 20px ca" width="26.666666" height="20.000000" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip59_31254)">
+		<path id="Vector" d="M6.25 0L20.4 0L20.4 20L6.25 20L6.25 0Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+		<path id="Vector" d="M-0.82 0L6.25 0L6.25 20L-0.82 20L-0.82 0ZM20.4 0L27.48 0L27.48 20L20.41 20L20.4 0ZM8.37 9.66L7.82 9.85L10.38 12.09C10.57 12.67 10.31 12.83 10.14 13.14L12.91 12.79L12.85 15.58L13.43 15.57L13.3 12.79L16.08 13.12C15.91 12.76 15.75 12.57 15.91 11.99L18.47 9.86L18.02 9.7C17.65 9.42 18.18 8.34 18.25 7.66C18.25 7.66 16.77 8.17 16.67 7.91L16.29 7.17L14.93 8.67C14.78 8.7 14.72 8.64 14.68 8.52L15.31 5.4L14.32 5.96C14.23 6 14.15 5.97 14.1 5.87L13.14 3.96L12.16 5.94C12.08 6.01 12.01 6.02 11.95 5.98L11 5.44L11.57 8.53C11.52 8.66 11.41 8.69 11.29 8.62L9.99 7.15C9.82 7.42 9.71 7.87 9.48 7.97C9.26 8.06 8.5 7.78 8 7.67C8.17 8.29 8.71 9.32 8.37 9.66L8.37 9.66Z" fill="#D52B1E" fill-opacity="1.000000" fill-rule="nonzero"/>
+	</g>
+</svg>

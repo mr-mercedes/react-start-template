@@ -1,0 +1,15 @@
+<svg width="38.000000" height="16.000000" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		<clipPath id="clip59_31256">
+			<rect id="Icons Flag 20px il" width="26.666666" height="20.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="Icons Flag 20px il" width="26.666666" height="20.000000" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip59_31256)">
+		<path id="Vector" d="M27.68 20.05L-0.97 20.05L-0.97 0L27.68 0L27.68 20.05Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd"/>
+		<path id="Vector" d="M27.68 4.51L-0.97 4.51L-0.97 1.87L27.68 1.87L27.68 4.51ZM27.68 18.23L-0.97 18.23L-0.97 15.6L27.68 15.6L27.68 18.23ZM8.76 7.46L13.07 14.97L17.48 7.5L8.76 7.47L8.76 7.46Z" fill="#0000CC" fill-opacity="1.000000" fill-rule="evenodd"/>
+		<path id="Vector" d="M12.26 12.44L13.08 13.83L13.92 12.45L12.26 12.44L12.26 12.44Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd"/>
+		<path id="Vector" d="M8.74 12.55L13.06 5.05L17.46 12.52L8.74 12.55Z" fill="#0000CC" fill-opacity="1.000000" fill-rule="evenodd"/>
+		<path id="Vector" d="M12.26 7.5L13.08 6.11L13.92 7.5L12.26 7.5L12.26 7.5ZM10.54 10.61L9.69 12.02L11.3 12.02L10.54 10.61L10.54 10.61ZM9.71 8.01L11.32 8.02L10.55 9.44L9.71 8.01ZM15.63 10.63L16.45 12.02L14.82 12L15.63 10.63ZM16.43 8.01L14.82 8.02L15.6 9.44L16.43 8.01ZM11.96 8.01L10.85 10.02L11.97 11.99L14.04 12.04L15.3 10.02L14.14 7.98L11.96 8L11.96 8.01Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</g>
+</svg>

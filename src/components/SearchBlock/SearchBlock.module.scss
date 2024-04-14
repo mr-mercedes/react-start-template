@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+}
+
+.menu {
+  box-sizing: border-box;
+
+  border: 2px solid rgb(59, 130, 246);
+  border-radius: 138px;
+
+  background: rgb(255, 255, 255);
+
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+
+  margin-right: 24px;
+
+  svg {
+    width: 20px;
+    height: 14px;
+    fill: rgb(59, 130, 246);
+  }
+}

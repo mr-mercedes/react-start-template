@@ -1,7 +1,8 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const port = 2233;
@@ -10,27 +11,37 @@ const src = path.join(__dirname, 'src');
 const host = 'localhost';
 
 module.exports = (_, args) => {
+  const isProd = args.mode === 'production';
+  const isDev = args.mode === 'development';
+
   return {
     entry: './index.tsx',
-    devtool: 'source-map',
+    devtool: isDev ? 'source-map' : undefined,
     context: src,
-    devServer: {
-      open: true,
-      port,
-      hot: true,
-      historyApiFallback: true,
-      host,
-    },
+    devServer: isDev
+      ? {
+          open: true,
+          port,
+          hot: true,
+          historyApiFallback: true,
+          host,
+        }
+      : undefined,
     resolve: {
       modules: [src, 'node_modules'],
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+      alias: {
+        src,
+      },
+      preferAbsolute: true,
+      mainFiles: ['index'],
     },
     output: {
       path: dist,
-      publicPath:
-        args.mode === 'development' ? `http://${host}:${port}/` : undefined /* <- прописать данные своего github */,
-      filename: `js/[name].js`,
-      chunkFilename: `js/[name].js`,
+      publicPath: isDev ? `http://${host}:${port}/` : undefined /* <- прописать данные своего github */,
+      filename: `js/[name]_[contenthash].js`,
+      chunkFilename: `js/[name]_[contenthash].js`,
+      clean: true,
     },
     module: {
       rules: [
@@ -50,34 +61,43 @@ module.exports = (_, args) => {
           ],
         },
         {
-          test: /\.css$/,
+          test: /\.(sc|sa|c)ss$/i,
           use: [
             {
-              loader: MiniCssExtractPlugin.loader,
-            },
-            'css-loader',
-          ],
-        },
-        {
-          test: /\.svg/,
-          type: 'asset/inline',
-        },
-        {
-          test: /\.s[ac]ss$/i,
-          use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
+              loader: isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             },
             {
               loader: 'css-loader',
               options: {
                 modules: {
-                  localIdentName: '[name]_[local]-[hash:base64:5]',
+                  auto: /.module./,
+                  localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]',
                 },
               },
             },
-            'sass-loader',
+            'postcss-loader',
+            {
+              loader: 'sass-loader',
+            },
           ],
+        },
+        {
+          test: /\.svg$/i,
+          type: 'asset/resource',
+          resourceQuery: /url/, // *.svg?url
+          generator: {
+            filename: 'img/icons/[name][ext]',
+          },
+        },
+        {
+          test: /\.svg$/i,
+          issuer: /\.[jt]sx?$/,
+          resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+          use: ['@svgr/webpack'],
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource',
         },
       ],
     },
@@ -88,7 +108,7 @@ module.exports = (_, args) => {
       }),
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
-        filename: 'css/[name].css',
+        filename: 'css/[name]_[contenthash].css',
         chunkFilename: 'css/[name].css',
       }),
       new ForkTsCheckerWebpackPlugin({
@@ -96,6 +116,7 @@ module.exports = (_, args) => {
           configFile: path.join(__dirname, 'tsconfig.json'),
         },
       }),
+      ...(isProd ? [new CssMinimizerWebpackPlugin()] : []),
     ],
   };
 };
