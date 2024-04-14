@@ -1,19 +1,13 @@
 import cn from 'clsx';
-import React, { FunctionComponent, useContext } from 'react';
-import { ThemeContext, ThemeContextProvider } from 'src/context/ThemeContext';
+import React, { FunctionComponent } from 'react';
+import { ThemeContextProvider } from 'src/context/ThemeContext';
 import { Header, Sidebar } from '../components';
 import styles from './Layout.module.scss';
 import { LayoutProps } from './Layout.props';
 
 const Layout = ({ children }: LayoutProps) => {
-  const { theme } = useContext(ThemeContext);
   return (
-    <div
-      className={cn(styles.layout, {
-        [styles.blackTheme]: theme === 'black',
-        [styles.white]: theme === 'white',
-      })}
-    >
+    <div className={cn(styles.layout)}>
       <Header />
       {children}
       <Sidebar />

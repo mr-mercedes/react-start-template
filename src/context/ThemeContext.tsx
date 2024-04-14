@@ -1,6 +1,6 @@
-import React, { createContext, PropsWithChildren, useContext, useMemo, useState } from 'react';
+import React, { createContext, PropsWithChildren, useContext, useInsertionEffect, useMemo, useState } from 'react';
 import styles from './ThemeContext.module.sass';
-type ThemeState = 'white' | 'black';
+type ThemeState = 'dark' | 'light';
 
 export interface ThemeContextProps {
   theme?: ThemeState;
@@ -9,11 +9,17 @@ export interface ThemeContextProps {
 
 export const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
-export const ThemeContextProvider = ({ theme = 'white', children }: PropsWithChildren<ThemeContextProps>) => {
+export const ThemeContextProvider = ({ theme = 'light', children }: PropsWithChildren<ThemeContextProps>) => {
   const [themeState, setThemeState] = useState<ThemeState>(theme);
   const updateTheme = (theme: ThemeState) => {
     setThemeState(theme);
   };
+  useInsertionEffect(() => {
+    const html = document.body.parentElement;
+    html.classList.add(theme);
+
+    return () => html.classList.remove(theme);
+  }, [theme]);
 
   const value = useMemo(() => ({ theme: themeState, setTheme: updateTheme }), [themeState]);
   return (

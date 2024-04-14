@@ -9,10 +9,10 @@ import styles from './LinkBlock.module.scss';
 export const LinkBlock = () => {
   const { theme, setTheme } = useTheme();
   const changeTheme = () => {
-    if (theme === 'white') {
-      setTheme('black');
+    if (theme === 'light') {
+      setTheme('dark');
     } else {
-      setTheme('white');
+      setTheme('light');
     }
   };
   return (
